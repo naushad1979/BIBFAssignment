@@ -7,6 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductAPI", "ProductAPI\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{665332BB-8AC9-4EEB-A54D-9FBEB0226276}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aks", "aks", "{C8F07EAB-9956-4F4B-B520-843388993B7E}"
+	ProjectSection(SolutionItems) = preProject
+		aks\identityserver.yaml = aks\identityserver.yaml
+		aks\productapi.yaml = aks\productapi.yaml
+		aks\sqlserver-configmap.yaml = aks\sqlserver-configmap.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{55D8C383-1011-4F2D-ACB5-D29C5C868DC3}"
+	ProjectSection(SolutionItems) = preProject
+		pipelines\identityserver-pipeline.yaml = pipelines\identityserver-pipeline.yaml
+		pipelines\productapi-pipeline.yaml = pipelines\productapi-pipeline.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
