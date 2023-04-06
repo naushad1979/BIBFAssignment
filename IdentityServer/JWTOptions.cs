@@ -1,4 +1,4 @@
-﻿namespace IdentityServer.Models
+﻿namespace IdentityServer
 {
     public class JWTOptions
     {
