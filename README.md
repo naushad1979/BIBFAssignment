@@ -81,7 +81,7 @@
  
  I do not have subscription for AWS, therefore, I could not setup the Devops pipeline for AWS. However, I have setup the DevOps pipleine using Azure Container   Registary and Kubernate Services. 
  
- Pipleline can be changes as per AWS.
+ Pipleline can be changed as per AWS.
  
  The details CI/CD are as follows 
  
