@@ -10,9 +10,10 @@
  3. Get the JWT secured token with URL http://localhost:5002/Identity/GetToken?userName=admin this token will be needed for ProductAPI secured communication.
  
  4. The endpoint for creating a new product is http://localhost:7050/Product/Create and to access this endpoint, do the following steps
+ 
    4.1 Install the Postman client.   
    4.2 Create New collection named as ProductAPI.   
-   4.3 Create New request named as CreateProduct with type as POST, URL http://localhost:7050/Product/Create 
+   4.3 Create New request named as CreateProduct with The Method type as POST, URL http://localhost:7050/Product/Create 
    4.4 under Body tab place the payload to create new Product. Select Raw from Radio button and select Json. The sample paylod is. 
           { 
             "name": "Cricket Bat",
@@ -24,9 +25,9 @@
 
    4.5 Under Authorization tab, select Bearer Token and paste the token received from the point 3
    
-   5. To delete the product, the endpoint will be http://localhost:7050/Product/Delete/1 where 1 the id that you wish to delete. It may be different in your case.        The token settings will be as per point 4.5 above.
+   5. To delete the product, the endpoint will be http://localhost:7050/Product/Delete/1 where 1 the id that you wish to delete. It may be different in your case.        The token settings will be as per point 4.5 above. The Method type will Delete.
    
-   6. To update the Product, the ednpoint will be http://localhost:7050/Product/Update and other settings will be as per 4.4 and 4.5. The payload will be 
+   6. To update the Product, the ednpoint will be http://localhost:7050/Product/Update and other settings will be as per 4.4 and 4.5. The Method type will PUT. The         payload will be 
      {
        "id": 1,
        "name": "Modern Bat",
@@ -34,6 +35,7 @@
        "price": 23456.65
      }
    
-   7. To get the product by Id, the endpoint will be http://localhost:7050/Product/GetById?id=2 where 2 will be changed as per your need. The Token setting will be         as 4.5 
+   7. To get the product by Id, the endpoint will be http://localhost:7050/Product/GetById?id=2 where 2 will be changed as per your need. The Token setting will be         as 4.5 and The Method type will be GET
+   8. To get all products, the endpoint will be http://localhost:7050/Product/GetAll and The Token setting will be as 4.5 and The Method type will be GET
 
   
