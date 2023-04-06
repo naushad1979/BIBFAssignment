@@ -40,7 +40,8 @@
 
   # 2. Solution details with folder wise 
      
-       # ProductAPI: 
+       ProductAPI
+       
        The ProductAPI is the core service to manage the product CRUD operations. These are secured method that can only be accessed using secured JWT token                  provided by IdentityServer. The ProductAPI deatils are as follows
        
        Controllers: ProductController.cs -  This the interface to external client for the required communication related to Product.
@@ -57,13 +58,24 @@
        
        Profile : Consists of MappingProfile.cs that is reponsible for Mapping the entity. It uses AutoMapper for the mapping.
        
-       Response : The response that API will return to the client.
+       Response : The response that API will return to the client.       
        
        Services : The Business Service which act as a business layer.
        
        Program.cs  -  This file setup the all the service and middlewares in the startup.
        
        ServicesRegistration.cs - Sets the additional service though dependancy injection. This is used by Program.cs
+       
+       
+       
+       IdentityServer -  This is an optional service which was not a part of intial requirement. However, it is created separately to generate and retrieve the               token.
+       
+       Controllers -  One ednpoint the generate and send the token back. Only static username as "admin" is used for access purpose. This cab be extended with actual                    database logic but it is not in current scope.
+       
+       Services : Contains the logic for Token generation.
+       
+       JWTOptions.cs -  This file holds appsettings mapping.
+       
        
        
    
