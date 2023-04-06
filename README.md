@@ -70,7 +70,9 @@
 
 
 
-   IdentityServer -  This is an optional service which was not a part of intial requirement. However, it is created separately to generate and retrieve the               token.
+   IdentityServer -  
+   
+   This is an optional service which was not a part of intial requirement. However, it is created separately to generate and retrieve the token. It components are follows.
 
    Controllers -  One ednpoint the generate and send the token back. Only static username as "admin" is used for access purpose. This cab be extended with actual                    database logic but it is not in current scope.
 
