@@ -1,8 +1,8 @@
 using Account.API;
-using AccountAPI;
-using ProductAPI.Exceptions;
 using ProductAPI.Middlewares;
 using Serilog;
+using Serilog.Events;
+using Serilog.Filters;
 using Serilog.Formatting.Json;
 
 try
@@ -11,9 +11,6 @@ try
 
     ConfigureLogging();
     builder.Host.UseSerilog();
-
-    //build JWT configuration
-    //builder.Services.AddOptions<JWTOptions>().BindConfiguration(JWTOptions.SectionName);
 
     // Add services to the container.
     builder.Services.AddControllers();
@@ -28,7 +25,7 @@ try
     // Configure the HTTP request pipeline.
 
     //Add Global Error handler
-    app.AddGlobalErrorHandler();
+    app.UseGlobalErrorHandler();
 
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -55,14 +52,14 @@ try
                 .Build();
 
         Log.Logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            //.Enrich.WithExceptionDetails()
-            //.WriteTo.Debug()
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+            .Filter.ByExcluding(Matching.FromSource("Microsoft"))
+            .Filter.ByExcluding(Matching.FromSource("System"))
+            .Enrich.FromLogContext()            
             .WriteTo.Console(new JsonFormatter())
-            .WriteTo.File(new JsonFormatter(), "log.txt")
-            //.WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
-            .Enrich.WithProperty("Environment", environment)
-            .ReadFrom.Configuration(configuration)
+            .WriteTo.File(new JsonFormatter(), "log.json")
             .CreateLogger();
     }
 }

@@ -2,7 +2,7 @@
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder AddGlobalErrorHandler(this IApplicationBuilder applicationBuilder)
+        public static IApplicationBuilder UseGlobalErrorHandler(this IApplicationBuilder applicationBuilder)
         => applicationBuilder.UseMiddleware<GlobalErrorHandlingMiddleware>();
     }
 }

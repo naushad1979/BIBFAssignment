@@ -1,13 +1,14 @@
 ﻿using System.Net;
 using System.Text.Json;
 using ProductAPI.Exceptions;
+using Serilog;
 
 namespace ProductAPI.Middlewares
 {
     public class GlobalErrorHandlingMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger _logger;
+        private static readonly Serilog.ILogger log = Log.ForContext(typeof(Program));
 
         public GlobalErrorHandlingMiddleware(RequestDelegate next)
         {
@@ -70,6 +71,8 @@ namespace ProductAPI.Middlewares
                 message = exception.Message;
                 stackTrace = exception.StackTrace;
             }
+
+            log.Error(message, stackTrace);
 
             var exceptionResult = JsonSerializer.Serialize(new { error = message });
             context.Response.ContentType = "application/json";
