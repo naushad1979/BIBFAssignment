@@ -1,12 +1,8 @@
 using AccountAPI.Models;
 using AccountAPI.Response;
 using AccountAPI.Services;
-using Azure;
-using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProductAPI.Exceptions;
-using ProductAPI.Infrastructure.Entity;
 using System.Text.Json;
 
 namespace ProductAPI.Controllers
