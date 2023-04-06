@@ -1,16 +1,11 @@
-﻿using System.Reflection;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Serilog;
-using Account.API.Infrastructure;
-using AccountAPI.Services;
+﻿using Account.API.Infrastructure;
 using AccountAPI.Infrastructure.Repository;
-using ProductAPI.Infrastructure.Repository;
+using AccountAPI.Services;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ProductAPI.Infrastructure.Repository;
 using System.Text;
 
 namespace Account.API
@@ -70,34 +65,13 @@ namespace Account.API
             using var scope = app.Services.CreateScope();
             var serviceProvider = scope.ServiceProvider;
 
-            string callingAssemblyName = Assembly.GetEntryAssembly().ManifestModule.Name.ToUpper();
-            if (!callingAssemblyName.Contains("TESTHOST"))
-            {
-                // migrate any database changes on startup (includes initial db creation)
-                var dataContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
-                dataContext.Database.Migrate();
-
-                //var premiumContext = serviceProvider.GetRequiredService<PremiumContext>();
-                // PremiumContextSeed.SeedAsync(premiumContext);
-
-                // Configure the HTTP request pipeline.
-                //if (app.Environment.IsDevelopment())
-                //{
-                // app.UseSwagger();
-                // app.UseSwaggerUI();
-                // }
-            }
+            // migrate any database changes on startup (includes initial db creation)
+            var dataContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
+            dataContext.Database.Migrate();
 
             app.UseCors("CorsPolicy");
-
-            //app.UseAuthorization();
-
-            //app.MapControllers();
-
-            //app.Run();
-
             return app;
         }
     }
-   
+
 }
