@@ -76,6 +76,23 @@
        
        JWTOptions.cs -  This file holds appsettings mapping.
        
+ 
+ # 3. CI/CD
+ 
+ I do not have subscription for AWS, therefore, I could not setup the Devops pipeline for AWS. However, I have setup the DevOps pipleine using Azure Container   Registary and Kubernate Services. 
+ 
+ Pipleline can be changes as per AWS.
+ 
+ The details CI/CD are as follows 
+ 
+ aks: This folder consists the YAML files per service. In addition, sqlserver-configmap.yaml is used to store the SQL connection but it value is currently set to dummay.
+ 
+ pipelines -  Consists of the yaml files that are used by DevOps pipeline and these files intenally use yaml files from aks folder.
+ 
+ 
+ # 4. Technologies and processe used
+ 
+ .Net 6.0, WebAPI, MS SQL, DEVOPS, AZURE, CI/CD, Entity Framework Core, Github. JWT Bearer Token
        
        
    
