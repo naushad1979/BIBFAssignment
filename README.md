@@ -65,6 +65,8 @@
    Program.cs  -  This file setup the all the service and middlewares in the startup.
 
    ServicesRegistration.cs - Sets the additional service though dependancy injection. This is used by Program.cs
+   
+   The logs are being captured in log.json file.
 
 
 
@@ -92,7 +94,7 @@
  
  # 4. Technologies and processe used
  
- .Net 6.0, WebAPI, MS SQL, DEVOPS, AZURE, CI/CD, Entity Framework Core, Github. JWT Bearer Token
+ .Net 6.0, WebAPI, MS SQL, DEVOPS, AZURE, CI/CD, Entity Framework Core, Github. JWT Bearer Token, Serilog
        
        
    
